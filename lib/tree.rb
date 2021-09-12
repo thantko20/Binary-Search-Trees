@@ -14,8 +14,6 @@ class Tree
     @root = build_tree(arr.sort.uniq)
   end
 
-  private
-
   def build_tree(arr)
     return nil if arr.empty?
 
@@ -27,7 +25,13 @@ class Tree
     return node
   end
 
-  public
+  def insert(value, node=@root)
+    return node.left = Node.new(value) if node.left.nil?
+
+    return node.right = Node.new(value) if node.right.nil?
+
+    value < node.data ? insert(value, node.left) : insert(value, node.right)
+  end
 
   def pretty_print(node = @root, prefix = '', is_left = true)
     pretty_print(node.right, "#{prefix}#{is_left ? '│   ' : '    '}", false) if node.right
