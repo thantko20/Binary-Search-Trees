@@ -14,24 +14,24 @@ class Tree
     @root = build_tree(arr.sort.uniq)
   end
 
-  # This method will build a tree with elements from arr
-  # Lets imagine a tree for an array [1,2,3,4,5]
-  # We will recursively set the mid of the array as root
-  # Then do the same for the left half of the array
-  # ........ right half of the array
-  # return stack if !arr
-  #return roots for every level
+  private
+
   def build_tree(arr)
-    # I need base case
-    # Gotta return if it is not arr(or empty)
-    #binding.pry
     return nil if arr.empty?
-    # set mid point
+
     mid = arr.size/2
     node = Node.new(arr[mid])
     node.left = build_tree(arr.slice(0, mid))
     node.right = build_tree(arr.slice(mid+1, arr.size))
 
     return node
+  end
+
+  public
+
+  def pretty_print(node = @root, prefix = '', is_left = true)
+    pretty_print(node.right, "#{prefix}#{is_left ? '│   ' : '    '}", false) if node.right
+    puts "#{prefix}#{is_left ? '└── ' : '┌── '}#{node.data}"
+    pretty_print(node.left, "#{prefix}#{is_left ? '    ' : '│   '}", true) if node.left
   end
 end
