@@ -1,3 +1,6 @@
+require_relative 'node'
+require 'pry-byebug'
+
 # Tree class
 # Initialized with array as argument
 # must have root attr
@@ -8,8 +11,7 @@ class Tree
   attr_accessor :root
 
   def initialize(arr)
-    @arr = arr.sort.uniq
-    @root = #build_tree
+    @root = build_tree(arr.sort.uniq)
   end
 
   # This method will build a tree with elements from arr
@@ -19,5 +21,17 @@ class Tree
   # ........ right half of the array
   # return stack if !arr
   #return roots for every level
-  
+  def build_tree(arr)
+    # I need base case
+    # Gotta return if it is not arr(or empty)
+    #binding.pry
+    return nil if arr.empty?
+    # set mid point
+    mid = arr.size/2
+    node = Node.new(arr[mid])
+    node.left = build_tree(arr.slice(0, mid))
+    node.right = build_tree(arr.slice(mid+1, arr.size))
+
+    return node
+  end
 end
