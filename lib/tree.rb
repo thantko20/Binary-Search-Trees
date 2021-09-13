@@ -26,16 +26,36 @@ class Tree
   end
 
   def insert(value, node=@root)
-    return node.left = Node.new(value) if node.left.nil?
+    #binding.pry
+    return node.left = Node.new(value) if node.nil? && node.data > value
 
-    return node.right = Node.new(value) if node.right.nil?
+    return node.right = Node.new(value) if node.right.nil? && node.data < value
 
     value < node.data ? insert(value, node.left) : insert(value, node.right)
+  end
+
+  # say i have a value which node is leaf node
+  def deletion(value, node=@root)
+    return node.left = nil if node.left.data == value
+
+    return node.right = nil if node.right.data == value
+
+    value < node.data ? deletion(value, node.left) : deletion(value, node.right)
   end
 
   def pretty_print(node = @root, prefix = '', is_left = true)
     pretty_print(node.right, "#{prefix}#{is_left ? '│   ' : '    '}", false) if node.right
     puts "#{prefix}#{is_left ? '└── ' : '┌── '}#{node.data}"
     pretty_print(node.left, "#{prefix}#{is_left ? '    ' : '│   '}", true) if node.left
+  end
+
+  def check_node(node=@root)
+    check_leaf_node(node)
+  end
+
+  private
+
+  def check_leaf_node(node)
+    node.left.nil? && node.right.nil?
   end
 end
