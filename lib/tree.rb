@@ -32,7 +32,9 @@ class Tree
   end
 
   def delete(value, node=@root)
-    # TODO leaf node
+    return node.left = nil if check_left_node(value, node)
+
+    node.right = nil if check_right_node(value, node)
   end
 
   def pretty_print(node = @root, prefix = '', is_left = true)
@@ -51,7 +53,19 @@ class Tree
     node.right ? insert(value, node.right) : node.right = Node.new(value)
   end
 
+  def check_left_node(value, node)
+    return unless node.left && node.right && node.data == value
+
+    check_leaf_node(value, node.left) ?  true : delete(value, node.left)
+  end
+
+  def check_right_node(value, node)
+    check_leaf_node(value, node.right) ? true : delete(value, node.right)
+  end
+
   def check_leaf_node(value, node)
-    !node.left && !node.right && node.data == value
+    return true if !node.left && !node.right && node.data == value
+
+    false
   end
 end
