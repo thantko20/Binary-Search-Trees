@@ -32,6 +32,7 @@ class Tree
   end
 
   def delete(value, node=@root)
+    return if node.nil?
     return node.left = nil if check_left_node(value, node)
 
     node.right = nil if check_right_node(value, node)
@@ -54,18 +55,21 @@ class Tree
   end
 
   def check_left_node(value, node)
-    return unless node.left && node.right && node.data == value
+    #binding.pry
+    return false unless node.left
 
     check_leaf_node(value, node.left) ?  true : delete(value, node.left)
   end
 
   def check_right_node(value, node)
+    #binding.pry
+    return false unless node.right
+
     check_leaf_node(value, node.right) ? true : delete(value, node.right)
   end
 
   def check_leaf_node(value, node)
-    return true if !node.left && !node.right && node.data == value
-
-    false
+    #binding.pry
+    !node.left && !node.right && node.data == value
   end
 end
