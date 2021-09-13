@@ -15,23 +15,24 @@ class Tree
   end
 
   def build_tree(arr)
-    return nil if arr.empty?
+    return if arr.empty?
 
     mid = arr.size/2
     node = Node.new(arr[mid])
     node.left = build_tree(arr.slice(0, mid))
     node.right = build_tree(arr.slice(mid+1, arr.size))
 
-    return node
+    node
   end
 
   def insert(value, node=@root)
-    #binding.pry
-    return node.left = Node.new(value) if node.left.nil? && node.data > value
+    return if node.data == value
 
-    return node.right = Node.new(value) if node.right.nil? && node.data < value
+    value > node.data ? insert_right(value, node) : insert_left(value, node)
+  end
 
-    value < node.data ? insert(value, node.left) : insert(value, node.right)
+  def delete(value, node=@root)
+    
   end
 
   def pretty_print(node = @root, prefix = '', is_left = true)
@@ -42,8 +43,11 @@ class Tree
 
   private
 
-  def check_leaf_node(left, right, value)
-    left = nil if left.left.nil? && left.right && left.data == value
-    right = nil if right.right.nil? && right.left.nil? && right.data == value
+  def insert_left(value, node)
+    node.left ? insert(value, node.left) : node.left = Node.new(value)
+  end
+
+  def insert_right(value, node)
+    node.right ? insert(value, node.right) : node.right = Node.new(value)
   end
 end
