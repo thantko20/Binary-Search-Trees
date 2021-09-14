@@ -42,9 +42,17 @@ class Tree
     elsif node.data < value
       node.right = delete(value, node.right)
     else
-      return node.right if node.left.nil?
-        
-      return node.left node.right.nil?
+      if node.left.nil?
+        return node.right
+      elsif node.right.nil?
+        return node.left
+      else
+        tmp = min_node(node.right)
+
+        node.data = tmp.data
+
+        node.right = delete(tmp.data, node.right)
+      end
     end
     node
   end
@@ -63,5 +71,11 @@ class Tree
 
   def insert_right(value, node)
     node.right ? insert(value, node.right) : node.right = Node.new(value)
-  end 
+  end
+
+  def min_node(node)
+    tmp = node
+    tmp = tmp.left until tmp.left.nil?
+    tmp
+  end
 end
