@@ -114,13 +114,13 @@ class Tree
   end
 
   def balance?(node=@root)
-    return if node.nil?
+    return true if node.nil?
 
     left = height(node.left)
     right = height(node.right)
 
     diff = (left - right).abs
-    diff <= 1
+    diff <= 1 && balance?(node.left) && balance?(node.right)
   end
 
   def rebalance
