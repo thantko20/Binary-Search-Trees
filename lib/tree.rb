@@ -102,8 +102,6 @@ class Tree
     max_height(left, right) + 1
   end
 
-  # Find the depth
-  # From the root node to given node
   def depth(node, curr_node=@root)
     return 0 if curr_node == node
 
@@ -123,6 +121,11 @@ class Tree
 
     diff = (left - right).abs
     diff <= 1
+  end
+
+  def rebalance
+    arr = inorder
+    @root = build_tree(arr)
   end
 
   def pretty_print(node = @root, prefix = '', is_left = true)
