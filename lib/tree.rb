@@ -50,6 +50,14 @@ class Tree
     node
   end
 
+  def level_order
+    return if @root.nil?
+
+    arr = []
+    arr.push(@root)
+    queue(arr)
+  end
+
   def find(value, node=@root)
     return if node.nil?
 
@@ -84,5 +92,17 @@ class Tree
     tmp = node
     tmp = tmp.left until tmp.left.nil?
     tmp
+  end
+
+  def queue(arr)
+    arr_of_values = []
+    until arr.empty?
+      curr_node = arr.first
+      arr_of_values.push(curr_node.data)
+      arr.push(curr_node.left) if curr_node.left
+      arr.push(curr_node.right) if curr_node.right
+      arr.shift
+    end
+    arr_of_values
   end
 end
