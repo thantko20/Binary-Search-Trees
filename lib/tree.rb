@@ -102,6 +102,19 @@ class Tree
     max_height(left, right) + 1
   end
 
+  # Find the depth
+  # From the root node to given node
+  def depth(node, curr_node=@root)
+    return 0 if curr_node == node
+
+    if curr_node.data > node.data
+      node_depth = depth(node, curr_node.left)
+    elsif curr_node.data < node.data
+      node_depth = depth(node, curr_node.right)
+    end
+    node_depth + 1
+  end
+
   def pretty_print(node = @root, prefix = '', is_left = true)
     pretty_print(node.right, "#{prefix}#{is_left ? '│   ' : '    '}", false) if node.right
     puts "#{prefix}#{is_left ? '└── ' : '┌── '}#{node.data}"
