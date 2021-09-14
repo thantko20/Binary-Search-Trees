@@ -1,3 +1,4 @@
+require_relative 'comparable'
 require_relative 'node'
 require 'pry-byebug'
 
@@ -8,6 +9,8 @@ require 'pry-byebug'
 
 # Init
 class Tree
+  include Comparable
+
   attr_accessor :root
 
   def initialize(arr)
@@ -32,10 +35,18 @@ class Tree
   end
 
   def delete(value, node=@root)
-    return if node.nil?
-    return node.left = nil if check_left_node(value, node)
+    return node if node.nil?
 
-    node.right = nil if check_right_node(value, node)
+    if node.data > value
+      node.left = delete(value, node.left)
+    elsif node.data < value
+      node.right = delete(value, node.right)
+    else
+      return node.right if node.left.nil?
+        
+      return node.left node.right.nil?
+    end
+    node
   end
 
   def pretty_print(node = @root, prefix = '', is_left = true)
@@ -52,24 +63,5 @@ class Tree
 
   def insert_right(value, node)
     node.right ? insert(value, node.right) : node.right = Node.new(value)
-  end
-
-  def check_left_node(value, node)
-    #binding.pry
-    return false unless node.left
-
-    check_leaf_node(value, node.left) ?  true : delete(value, node.left)
-  end
-
-  def check_right_node(value, node)
-    #binding.pry
-    return false unless node.right
-
-    check_leaf_node(value, node.right) ? true : delete(value, node.right)
-  end
-
-  def check_leaf_node(value, node)
-    #binding.pry
-    !node.left && !node.right && node.data == value
-  end
+  end 
 end
