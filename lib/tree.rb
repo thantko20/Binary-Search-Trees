@@ -66,6 +66,33 @@ class Tree
     value < node.data ? find(value, node.left) : find(value, node.right)
   end
 
+  def preorder(node=@root, arr=[])
+    return if node.nil?
+
+    arr.push(node.data)
+    preorder(node.left, arr)
+    preorder(node.right, arr)
+    arr
+  end
+
+  def inorder(node=@root, arr=[])
+    return if node.nil?
+
+    inorder(node.left, arr)
+    arr.push(node.data)
+    inorder(node.right, arr)
+    arr
+  end
+
+  def postorder(node=@root, arr=[])
+    return if node.nil?
+
+    postorder(node.left, arr)
+    postorder(node.right, arr)
+    arr.push(node.data)
+    arr
+  end
+
   def pretty_print(node = @root, prefix = '', is_left = true)
     pretty_print(node.right, "#{prefix}#{is_left ? '│   ' : '    '}", false) if node.right
     puts "#{prefix}#{is_left ? '└── ' : '┌── '}#{node.data}"
