@@ -115,6 +115,16 @@ class Tree
     node_depth + 1
   end
 
+  def balance?(node=@root)
+    return if node.nil?
+
+    left = height(node.left)
+    right = height(node.right)
+
+    diff = (left - right).abs
+    diff <= 1
+  end
+
   def pretty_print(node = @root, prefix = '', is_left = true)
     pretty_print(node.right, "#{prefix}#{is_left ? '│   ' : '    '}", false) if node.right
     puts "#{prefix}#{is_left ? '└── ' : '┌── '}#{node.data}"
