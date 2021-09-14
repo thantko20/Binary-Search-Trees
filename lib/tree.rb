@@ -1,13 +1,5 @@
-require_relative 'comparable'
 require_relative 'node'
-require 'pry-byebug'
 
-# Tree class
-# Initialized with array as argument
-# must have root attr
-# which a a return value of #build_tree method
-
-# Init
 class Tree
   include Comparable
 
@@ -28,6 +20,7 @@ class Tree
     node
   end
 
+  # I adapted my insert method to rlmoser's in TOP
   def insert(value, node=@root)
     return if node.data == value
 

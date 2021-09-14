@@ -1,0 +1,107 @@
+[33mcommit f614e041dc9cbc496219ac1a201c4daf3b892004[m[33m ([m[1;36mHEAD -> [m[1;32mmaster[m[33m, [m[1;31morigin/refactor-delete[m[33m, [m[1;32mrefactor-delete[m[33m)[m
+Author: Thant Ko Zaw <thantmkou10@gmail.com>
+Date:   Tue Sep 14 14:15:38 2021 +0630
+
+    Refactor #delete with optimal code
+
+[33mcommit 8afe9ceff4ecb2bf97632be941df2b23dac02527[m
+Author: Thant Ko Zaw <thantmkou10@gmail.com>
+Date:   Tue Sep 14 11:16:36 2021 +0630
+
+    Refactor #delete and remove check methods
+
+[33mcommit 74244920ad381c6f3f3b0cdc434e34c044367bf4[m
+Author: Thant Ko Zaw <thantmkou10@gmail.com>
+Date:   Tue Sep 14 08:34:10 2021 +0630
+
+    Add Comparable module to identify and search nodes
+
+[33mcommit ec28c5650422fa7054bc0a9637902745911c3031[m
+Author: Thant Ko Zaw <thantmkou10@gmail.com>
+Date:   Tue Sep 14 00:56:22 2021 +0630
+
+    #delete only works for leaf nodes with the help of some methods
+
+[33mcommit 7bf8c271c5d80bce23778a263d55195daf31f9a5[m
+Author: Thant Ko Zaw <thantmkou10@gmail.com>
+Date:   Mon Sep 13 23:39:29 2021 +0630
+
+    #delete can now delete the leaf node with same value
+
+[33mcommit a5914270739249f91e4245fe496e4ed2c06aa76a[m
+Author: Thant Ko Zaw <thantmkou10@gmail.com>
+Date:   Mon Sep 13 22:28:13 2021 +0630
+
+    Add #check_left_node
+
+[33mcommit 09380594883edb6bf7733f5cf95dce1c684d5eb0[m
+Author: Thant Ko Zaw <thantmkou10@gmail.com>
+Date:   Mon Sep 13 22:22:42 2021 +0630
+
+    Refactor #insert(took an inspiration from rlmoser from TOP)
+
+[33mcommit c8043c50321182aa588177fb574518647ff1575f[m
+Author: Thant Ko Zaw <thantmkou10@gmail.com>
+Date:   Mon Sep 13 21:50:55 2021 +0630
+
+    Remove #deletion for now
+
+[33mcommit c9e9adf60f309d5cf61592e463dda4ff4e39ef26[m
+Author: Thant Ko Zaw <thantmkou10@gmail.com>
+Date:   Mon Sep 13 21:22:42 2021 +0630
+
+    Add test methods for checking nodes
+
+[33mcommit e6d453b8593981f92204f321ff282a2251d3a74e[m
+Author: Thant Ko Zaw <thantmkou10@gmail.com>
+Date:   Mon Sep 13 21:04:40 2021 +0630
+
+    Fix a bug in #insertion where the value isn't inserted in correct order
+
+[33mcommit 9d74bb21658b55b60a75d5d18441b157fa3e84e9[m
+Author: Thant Ko Zaw <thantmkou10@gmail.com>
+Date:   Sun Sep 12 23:05:43 2021 +0630
+
+    Add #insert
+
+[33mcommit 3bd88621596426c0177b4cb33feae3ff04552cbb[m
+Author: Thant Ko Zaw <thantmkou10@gmail.com>
+Date:   Sun Sep 12 21:20:32 2021 +0630
+
+    Add #pretty_print
+
+[33mcommit bafa0723c111812e8a65e939996df8e8f9c453a0[m
+Author: Thant Ko Zaw <thantmkou10@gmail.com>
+Date:   Sun Sep 12 21:07:54 2021 +0630
+
+    Add #build_tree
+
+[33mcommit 6eb378cc842b1de03671ead36601bd6331961539[m
+Author: Thant Ko Zaw <thantmkou10@gmail.com>
+Date:   Sun Sep 12 20:32:20 2021 +0630
+
+    Initialize Tree class
+
+[33mcommit c32697383d0b8e0571cc1e52398bffa03ef318e6[m
+Author: Thant Ko Zaw <thantmkou10@gmail.com>
+Date:   Sun Sep 12 20:23:03 2021 +0630
+
+    Add attributes
+
+[33mcommit cb8251bd9f226cbaa0dd8d75dc6a380639646756[m
+Author: Thant Ko Zaw <thantmkou10@gmail.com>
+Date:   Sun Sep 12 20:20:57 2021 +0630
+
+    Add node class
+
+[33mcommit c4f5e7d7bc2f21b36110acf139e0d96884b59034[m
+Author: Thant Ko Zaw <thantmkou10@gmail.com>
+Date:   Sun Sep 12 20:20:18 2021 +0630
+
+    First commit
+
+[33mcommit 4e2faf94039b87179bab774b37ff9aa2af50f298[m[33m ([m[1;31morigin/master[m[33m)[m
+Author: Thant Ko Zaw <thantmkou10@gmail.com>
+Date:   Sun Sep 12 20:16:26 2021 +0630
+
+    First commit
